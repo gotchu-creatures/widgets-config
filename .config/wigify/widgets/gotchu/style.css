@@ -1,0 +1,25 @@
+
+
+.wigify-titlebar {
+  display: none !important;
+}
+
+.container {
+  background-color: transparent;
+  width: 200px;
+  height: 140px;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.iframe {
+  background-color: transparent;
+  width: 140px;
+  height: 140px;
+  top: 0;
+  left: 0;
+  border: 0;
+  overflow: hidden;
+}
