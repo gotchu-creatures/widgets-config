@@ -1,8 +1,8 @@
 {
   "name": "@gotchu/widgets-config",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "1.0.1",
+  "description": "Widgets configuration templates for GOTCHU",
+  "main": "bin/cli.js",
   "bin": {
     "gotchu-widgets": "./bin/cli.js"
   },

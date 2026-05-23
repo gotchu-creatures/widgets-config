@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import fs from "node:fs/promises";
+import { homedir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -65,10 +66,14 @@ function isBinary(filePath) {
 // ─── Engine setup ─────────────────────────────────────────────────────────────
 
 const ENGINES = {
+  uebersicht: {
+    label: "Übersicht",
+    templatesDir: path.resolve(__dirname, "../templates/uebersicht/widgets"),
+    targetDir: (root) => path.join(root, "Library//Application Support/Übersicht/widgets"),
+  },
   wigify: {
     label: "Wigify",
-    widgets: ["gotchu"],
-    templatesDir: path.resolve(__dirname, "../.config/wigify/widgets"),
+    templatesDir: path.resolve(__dirname, "../templates/wigify/widgets"),
     targetDir: (root) => path.join(root, ".config/wigify/widgets"),
   },
 };
@@ -80,14 +85,8 @@ async function setupEngine(engine) {
     throw new Error(`Unsupported engine: "${engine}". Supported: ${supported}`);
   }
 
-  const root = process.cwd();
-  await Promise.all(
-    config.widgets.map((widget) => {
-      const src = path.join(config.templatesDir, widget);
-      const dest = path.join(config.targetDir(root), widget);
-      return copyTemplate(src, dest, { GOTCHU_URL, });
-    })
-  );
+  const root = homedir();
+  await copyTemplate(config.templatesDir, config.targetDir(root), { GOTCHU_URL, });
 
   console.log(`✅ Widgets installed for ${config.label}`);
 }
@@ -105,7 +104,7 @@ async function assertExists(filePath, message) {
 const engine = process.argv[2];
 
 if (!engine) {
-  console.error("Usage: setup-widget <engine>");
+  console.error("Usage: gotchu-widgets <engine>");
   console.error(`Available engines: ${Object.keys(ENGINES).join(", ")}`);
   process.exit(1);
 }
