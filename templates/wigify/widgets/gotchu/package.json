@@ -1,10 +1,10 @@
 {
-  "name": "gotchu",
+  "name": "@gotchu/wigify",
   "version": "1.0.0",
   "title": "gotchu",
   "size": {
-    "width": 200,
-    "height": 140
+    "width": 160,
+    "height": 160
   },
   "resizable": false,
   "variables": []

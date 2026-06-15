@@ -6,20 +6,19 @@
 
 .container {
   background-color: transparent;
-  width: 200px;
-  height: 140px;
-  border: 2px solid transparent;
-  border-radius: 12px;
+  width: 160px;
+  height: 160px;
   box-sizing: border-box;
   overflow: hidden;
 }
 
 .iframe {
   background-color: transparent;
-  width: 140px;
-  height: 140px;
+  width: 160px;
+  height: 160px;
   top: 0;
   left: 0;
   border: 0;
+  border-radius: 12px;
   overflow: hidden;
 }

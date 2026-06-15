@@ -4,12 +4,12 @@
       "id": "1a96925c-94ca-44e3-8867-74ef8ecb53fe",
       "widgetName": "gotchu",
       "position": {
-        "x": 1440,
-        "y": 740
+        "x": 1420,
+        "y": 720
       },
       "size": {
-        "width": 200,
-        "height": 140
+        "width": 160,
+        "height": 160
       },
       "variables": {},
       "enabled": true
